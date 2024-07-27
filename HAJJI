@@ -39,7 +39,9 @@ Tab2:AddSection({Name = ""})
 addButtons(Tab2, {
     {Name = "سكربت بلوكس فروت", Url = "https://raw.githubusercontent.com/Basicallyybeta/main/main/Mingaming.lua"},
     {Name = "سكربت ماب البيوت", Url = "https://raw.githubusercontent.com/JulHubz/JulHub/main/JulHub"},
-    {Name = "سكربت بليد بول", Url = "https://raw.githubusercontent.com/REDzHUB/BladeBall/main/redz9999"}
+    {Name = "سكربت بليد بول", Url = "https://raw.githubusercontent.com/REDzHUB/BladeBall/main/redz9999"},
+    {Name = "سكربت طيران", Url = "https://pastebin.com/raw/TinK2zh7"}
+    {Name = "سكربت داهود", Url = "https://github.com/ravefrr/obf2/raw/main/twrexec"}
 })
 
 -- تبويب الحقوق
