@@ -1,5 +1,5 @@
 game:GetService("StarterGui"):SetCore("SendNotification",{
-                Title = "Transition From TPC";
+                Title = "Transition From HAJJI";
                 Text = "Transition From Egypt";
                 Duration = 3.5;
             })
