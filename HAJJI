@@ -1,0 +1,64 @@
+-- Script at: https://raw.githubusercontent.com/yourusername/yourrepository/main/VR7_TEAM_Script.lua
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "VR7 TEAM", HidePremium = false, SaveConfig = true, ConfigFolder = "MyConfig"})
+
+local function addButtons(tab, buttons)
+    for _, button in ipairs(buttons) do
+        tab:AddButton({
+            Name = button.Name,
+            Callback = function()
+                loadstring(game:HttpGet(button.Url))()
+            end
+        })
+    end
+end
+
+-- تبويب VR7 TEAM
+local Tab1 = Window:MakeTab({
+    Name = "VR7 TEAM",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab1:AddSection({Name = "خذ أي سكربت تبيه"})
+addButtons(Tab1, {
+    {Name = "سكربت راقدول", Url = "https://raw.githubusercontent.com/VR7ss/OMK/main/VR7%20RAGDOLL"},
+    {Name = "mm2 سكربت", Url = "https://raw.githubusercontent.com/Majeedl12/ScriptsByM7/main/VR7s.mm2.lua"},
+    {Name = "سكربت يشغل كل مابات العرب", Url = "https://raw.githubusercontent.com/7yd7/Script/main/VR7"}
+})
+
+-- تبويب سكربتات منوعه
+local Tab2 = Window:MakeTab({
+    Name = "سكربتات منوعه",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab2:AddSection({Name = ""})
+addButtons(Tab2, {
+    {Name = "سكربت بلوكس فروت", Url = "https://raw.githubusercontent.com/Basicallyybeta/main/main/Mingaming.lua"},
+    {Name = "سكربت ماب البيوت", Url = "https://raw.githubusercontent.com/JulHubz/JulHub/main/JulHub"},
+    {Name = "سكربت بليد بول", Url = "https://raw.githubusercontent.com/REDzHUB/BladeBall/main/redz9999"}
+})
+
+-- تبويب الحقوق
+local Tab3 = Window:MakeTab({
+    Name = "الحقوق",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab3:AddSection({Name = "المطور: _534"})
+Tab3:AddButton({
+    Name = "نسخ سيرفر الدسكورد",
+    Callback = function()
+        setclipboard("https://discord.gg/vr7")
+        OrionLib:MakeNotification({
+            Name = "تم نسخ رابط سيرفر الدسكورد",
+            Content = "تم نسخ رابط سيرفر الدسكورد إلى الحافظة.",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
+})
