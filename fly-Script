@@ -1,6 +1,6 @@
 game:GetService("StarterGui"):SetCore("SendNotification",{
                 Title = "Transition From HAJJI";
-                Text = "Transition From Egypt";
+                Text = "Transition From HAJJI";
                 Duration = 3.5;
             })
 -- Gui to Lua
