@@ -1,8 +1,35 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local localPlayer = game.Players.LocalPlayer
-local players = game.Players
+-- Script at: https://raw.githubusercontent.com/yourusername/yourrepository/main/VR7_TEAM_Script.lua
 
- 
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "VR7 TEAM", HidePremium = false, SaveConfig = true, ConfigFolder = "MyConfig"})
+
+local function addButtons(tab, buttons)
+    for _, button in ipairs(buttons) do
+        tab:AddButton({
+            Name = button.Name,
+            Callback = function()
+                loadstring(game:HttpGet(button.Url))()
+            end
+        })
+    end
+end
+
+-- تبويب VR7 TEAM
+local Tab1 = Window:MakeTab({
+    Name = "VR7 TEAM",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab1:AddSection({Name = "خذ أي سكربت تبيه"})
+addButtons(Tab1, {
+    {Name = "سكربت كشف اماكن", Url = "local localPlayer = game.Players.LocalPlayer
+local players = game.Players
+local RunService = game:GetService("RunService")
+
+local lastCheck = 0
+local checkInterval = 5 -- 5 ثواني
+
 local function checkPlayerLocations()
     for _, player in pairs(players:GetPlayers()) do
         if player ~= localPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
@@ -14,8 +41,11 @@ local function checkPlayerLocations()
     end
 end
 
--- التحقق بشكل دوري
-while true do
-    checkPlayerLocations()
-    wait(5)
-end
+-- التحقق بشكل دوري باستخدام RunService
+RunService.Heartbeat:Connect(function(deltaTime)
+    lastCheck = lastCheck + deltaTime
+    if lastCheck >= checkInterval then
+        checkPlayerLocations()
+        lastCheck = 0
+    end
+end)"},
