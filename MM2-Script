@@ -1,0 +1,21 @@
+
+local localPlayer = game.Players.LocalPlayer
+local players = game.Players
+
+ 
+local function checkPlayerLocations()
+    for _, player in pairs(players:GetPlayers()) do
+        if player ~= localPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            local character = player.Character
+            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+            local position = humanoidRootPart.Position
+            print(player.Name .. " في الموقع: " .. tostring(position))
+        end
+    end
+end
+
+-- التحقق بشكل دوري
+while true do
+    checkPlayerLocations()
+    wait(5)
+end
