@@ -38,9 +38,9 @@ export default async function handler(req, res) {
 
     // إرسال رسالة إلى الـ Webhook
     const embed = {
-      title: "كم زربه مستخدم السكربت حاليا",
+      title: "مستخدمين السكربت الآن",
       description: `العدد الحالي: **${count}**`,
-      color: #ff0000,
+      color: 0xff0000, // اللون الأحمر
       timestamp: new Date().toISOString()
     };
 
