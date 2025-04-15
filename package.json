@@ -1,11 +1,9 @@
 {
-  "name": "user-tracker-api",
+  "name": "roblox-tracker",
   "version": "1.0.0",
-  "description": "API لحساب عدد مستخدمي سكربت روبلوكس",
-  "main": "users.js",
   "type": "module",
   "scripts": {
-    "start": "vercel dev"
+    "dev": "vercel dev"
   },
   "dependencies": {
     "axios": "^1.6.8"
