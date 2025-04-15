@@ -10,10 +10,10 @@ export default async function handler(req, res) {
   }
 
   const { user } = req.body;
-  if (!user) return res.status(400).json({ error: "user required" });
+  if (!user) return res.status(400).json({ error: "user is required" });
 
   try {
-    // حدّث وقت آخر ظهور لهذا المستخدم
+    // حفظ آخر ظهور للمستخدم
     await fetch(`${redisUrl}/set/user:${user}`, {
       method: "POST",
       headers: {
@@ -22,21 +22,21 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         value: Date.now(),
-        EX: 180 // صلاحية لمدة 3 دقائق
+        EX: 180 // صلاحية 3 دقائق
       }),
     });
 
-    // اجلب جميع المفاتيح
+    // جلب عدد المفاتيح
     const keysRes = await fetch(`${redisUrl}/keys/user:*`, {
       headers: {
         Authorization: `Bearer ${redisToken}`
       }
     });
-    const keys = await keysRes.json();
 
-    const count = keys.length;
+    const keysData = await keysRes.json();
+    const count = Array.isArray(keysData.result) ? keysData.result.length : 0;
 
-    // عدّل أو أرسل رسالة webhook
+    // إرسال رسالة إلى الـ Webhook
     const embed = {
       title: "مستخدمين السكربت الآن",
       description: `العدد الحالي: **${count}**`,
@@ -44,7 +44,6 @@ export default async function handler(req, res) {
       timestamp: new Date().toISOString()
     };
 
-    // أرسل أو عدل حسب الحاجة
     await axios.post(`${webhookUrl}?wait=true`, {
       embeds: [embed]
     });
