@@ -1,8 +1,8 @@
 # Hi 👋
 
-I'm DRYF
+I'm DRYFD
 
 ## About me
 - 🤖 Discord Bot Developer
 - 🌐 API Maker
-- 🧠 Learning New Things
+- JS,python,html,css
